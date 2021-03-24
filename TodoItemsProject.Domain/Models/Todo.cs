@@ -11,5 +11,7 @@ namespace TodoItemsProject.Domain.Models
         public string Description { get; set; }
         public bool IsDone { get; set; }
         public Place Location { get; set; }
+        public DateTime CreateTime { get; set; }
+        public DateTime DueTime { get; set; }
     }
 }
