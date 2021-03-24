@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TodoItemsProject.Domain.Models
 {
-    class Todo
+    public class Todo
     {
         public int Id { get; set; }
         public string Title { get; set; }
