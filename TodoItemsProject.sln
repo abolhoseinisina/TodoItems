@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoItemsProject", "TodoItemsProject\TodoItemsProject.csproj", "{B5FC0666-DE16-44BD-A8C0-CDD4227FC154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoItemsProject", "TodoItemsProject\TodoItemsProject.csproj", "{B5FC0666-DE16-44BD-A8C0-CDD4227FC154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoItemsProject.Domain", "TodoItemsProject.Domain\TodoItemsProject.Domain.csproj", "{89FF41B5-25D8-4900-A04A-DD998B21ED62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoItemsProject.Domain", "TodoItemsProject.Domain\TodoItemsProject.Domain.csproj", "{89FF41B5-25D8-4900-A04A-DD998B21ED62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoItemsProject.Application", "TodoItemsProject.Application\TodoItemsProject.Application.csproj", "{D00C8506-D9F3-4EBF-BA3B-B2E844830E7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{89FF41B5-25D8-4900-A04A-DD998B21ED62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89FF41B5-25D8-4900-A04A-DD998B21ED62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89FF41B5-25D8-4900-A04A-DD998B21ED62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00C8506-D9F3-4EBF-BA3B-B2E844830E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00C8506-D9F3-4EBF-BA3B-B2E844830E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00C8506-D9F3-4EBF-BA3B-B2E844830E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00C8506-D9F3-4EBF-BA3B-B2E844830E7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
