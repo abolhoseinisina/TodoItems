@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TodoItemsProject.Application.Interfaces
 {
-    interface IDatabaseService
+    public interface IDatabaseService
     {
     }
 }
