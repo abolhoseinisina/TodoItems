@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Text.Json;
 using TodoItemsProject.Application.Interfaces;
 using TodoItemsProject.Domain.Models;
 
@@ -15,8 +16,9 @@ namespace TodoItemsProject.WebAPI.Controllers
             this.todoService = todoService;
         }
         [HttpGet]
-        public IEnumerable<Todo> Get()
+        public IEnumerable<object> Get()
         {
+            var r = todoService.Get();
             return todoService.Get();
         }
         [HttpGet("{id}")]

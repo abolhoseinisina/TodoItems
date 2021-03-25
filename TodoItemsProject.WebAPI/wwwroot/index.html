@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="Content/index.css" />
+</head>
+<body>
+    <h1>TODO List</h1>
+    <h3>Add</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-title" placeholder="Title">
+        <input type="text" id="add-description" placeholder="Description">
+        <input type="text" id="add-due-date" placeholder="Due Date">
+        <select id="add-location"></select>
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="checkbox" id="edit-isDone">
+            <input type="text" id="edit-title">
+            <input type="text" id="edit-description">
+            <input type="text" id="edit-due-date">
+            <select id="edit-location"></select>
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Done?</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Location</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="todos"></tbody>
+    </table>
+    <a href="places.html">Places List</a>
+    <script src="Scripts/index.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getPlaces();
+        getItems();
+    </script>
+</body>
+</html>
