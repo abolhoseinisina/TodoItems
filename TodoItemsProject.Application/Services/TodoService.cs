@@ -8,8 +8,8 @@ namespace TodoItemsProject.Application.Services
 {
     public class TodoService : ITodoService
     {
-        private IDatabaseService context;
-        private UnitOfWork unitOfWork;
+        private readonly IDatabaseService context;
+        private readonly UnitOfWork unitOfWork;
         public TodoService(IDatabaseService context)
         {
             this.context = context;
@@ -18,12 +18,14 @@ namespace TodoItemsProject.Application.Services
 
         public void Add(Todo item)
         {
-            throw new NotImplementedException();
+            unitOfWork.TodoRepository.Insert(item);
+            unitOfWork.Save();
         }
 
         public void Delete(Todo item)
         {
-            throw new NotImplementedException();
+            unitOfWork.TodoRepository.Delete(item);
+            unitOfWork.Save();
         }
 
         public void DeleteById(int id)
@@ -33,18 +35,18 @@ namespace TodoItemsProject.Application.Services
 
         public void Edit(Todo item)
         {
-            throw new NotImplementedException();
+            unitOfWork.TodoRepository.Update(item);
+            unitOfWork.Save();
         }
 
-        public void Get()
+        public IEnumerable<Todo> Get()
         {
-            unitOfWork.TodoRepository.Get();
-            //return unitOfWork.TodoRepository.Get();
+            return unitOfWork.TodoRepository.Get();
         }
 
-        public void GetById(int id)
+        public Todo GetById(int id)
         {
-            throw new NotImplementedException();
+            return unitOfWork.TodoRepository.GetByID(id);
         }
     }
 }

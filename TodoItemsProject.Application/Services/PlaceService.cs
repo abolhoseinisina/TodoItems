@@ -8,14 +8,23 @@ namespace TodoItemsProject.Application.Services
 {
     public class PlaceService : IPlaceService
     {
+        readonly private IDatabaseService context;
+        readonly private UnitOfWork unitOfWork;
+        public PlaceService(IDatabaseService context)
+        {
+            this.context = context;
+            unitOfWork = new UnitOfWork(this.context);
+        }
         public void Add(Place item)
         {
-            throw new NotImplementedException();
+            unitOfWork.PlaceRepository.Insert(item);
+            unitOfWork.Save();
         }
 
         public void Delete(Place item)
         {
-            throw new NotImplementedException();
+            unitOfWork.PlaceRepository.Delete(item);
+            unitOfWork.Save();
         }
 
         public void DeleteById(int id)
@@ -25,17 +34,18 @@ namespace TodoItemsProject.Application.Services
 
         public void Edit(Place item)
         {
-            throw new NotImplementedException();
+            unitOfWork.PlaceRepository.Update(item);
+            unitOfWork.Save();
         }
 
-        public void Get()
+        public IEnumerable<Place> Get()
         {
-            throw new NotImplementedException();
+            return unitOfWork.PlaceRepository.Get();
         }
 
-        public void GetById(int id)
+        public Place GetById(int id)
         {
-            throw new NotImplementedException();
+            return unitOfWork.PlaceRepository.GetByID(id);
         }
     }
 }
