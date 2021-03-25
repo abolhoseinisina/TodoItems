@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TodoItemsProject.Application.Interfaces;
+using TodoItemsProject.Application.Services;
+using TodoItemsProject.Common.Interfaces;
+using TodoItemsProject.Common.Services;
+using TodoItemsProject.Persistance.Services;
 
 namespace TodoItemsProject.WebAPI
 {
@@ -25,12 +30,12 @@ namespace TodoItemsProject.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoItemsProject", Version = "v1" });
-            });
+            services.AddScoped<IDateTimeService, DateTimeService>();
+            services.AddScoped<ITodoService, TodoService>();
+            services.AddScoped<IPlaceService, PlaceService>();
+            services.AddScoped<IDatabaseService, DatabaseService>();
+            //services.AddDbContext<DatabaseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,10 +44,9 @@ namespace TodoItemsProject.WebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoItemsProject v1"));
             }
 
+            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthorization();
