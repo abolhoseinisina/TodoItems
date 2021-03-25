@@ -11,7 +11,6 @@ namespace TodoItemsProject.Persistance.Services
            => optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TodoItemsProjectDB;Trusted_Connection=True;MultipleActiveResultSets=true");
 
         public DbSet<Todo> Todos { get; set; }
-
         public DbSet<Place> Places { get; set; }
 
         EntityEntry IDatabaseService.Entry<TEntity>(TEntity entityToUpdate)

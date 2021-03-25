@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TodoItemsProject.Domain.Models
 {
@@ -9,6 +7,6 @@ namespace TodoItemsProject.Domain.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Address { get; set; }
-        public IEnumerable<Todo> Todos { get; set; }
+        public List<Todo> Todos { get; set; }
     }
 }
