@@ -7,6 +7,6 @@ namespace TodoItemsProject.Common.Services
 {
     public class DateTimeService : IDateTimeService
     {
-        public DateTime Now { get => DateTime.Now; }
+        public static DateTime Now { get => DateTime.Now; }
     }
 }

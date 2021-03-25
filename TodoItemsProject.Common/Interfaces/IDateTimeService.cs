@@ -6,6 +6,6 @@ namespace TodoItemsProject.Common.Interfaces
 {
     public interface IDateTimeService
     {
-        public DateTime Now { get; }
+        public static DateTime Now { get; }
     }
 }
