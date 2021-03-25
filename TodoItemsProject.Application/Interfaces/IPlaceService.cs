@@ -7,8 +7,8 @@ namespace TodoItemsProject.Application.Interfaces
 {
     public interface IPlaceService
     {
-        public void Get();
-        public void GetById(int id);
+        public IEnumerable<Place> Get();
+        public Place GetById(int id);
         public void Add(Place item);
         public void Edit(Place item);
         public void Delete(Place item);

@@ -7,8 +7,8 @@ namespace TodoItemsProject.Application.Interfaces
 {
     public interface ITodoService
     {
-        public void Get();
-        public void GetById(int id);
+        public IEnumerable<Todo> Get();
+        public Todo GetById(int id);
         public void Add(Todo item);
         public void Edit(Todo item);
         public void Delete(Todo item);
