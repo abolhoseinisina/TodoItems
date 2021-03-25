@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TodoItemsProject.Application.Interfaces;
+using TodoItemsProject.Common.Services;
 using TodoItemsProject.Domain.Models;
 
 namespace TodoItemsProject.Application.Services
@@ -15,7 +16,25 @@ namespace TodoItemsProject.Application.Services
             this.context = context;
             unitOfWork = new UnitOfWork(this.context);
         }
+        public IEnumerable<Todo> Get()
+        {
+            IEnumerable<Todo> todos = unitOfWork.TodoRepository.Get();
+            foreach (Todo td in todos)
+            {
+                var place = unitOfWork.PlaceRepository.GetByID(td.PlaceId);
+                td.Place = new Place{
+                    Id = place.Id,
+                    Title = place.Title,
+                    Address = place.Address
+                };
+            }
+            return todos;
+        }
 
+        public Todo GetById(int id)
+        {
+            return unitOfWork.TodoRepository.GetByID(id);
+        }
         public void Add(Todo item)
         {
             unitOfWork.TodoRepository.Insert(item);
@@ -37,16 +56,6 @@ namespace TodoItemsProject.Application.Services
         {
             unitOfWork.TodoRepository.Update(item);
             unitOfWork.Save();
-        }
-
-        public IEnumerable<Todo> Get()
-        {
-            return unitOfWork.TodoRepository.Get();
-        }
-
-        public Todo GetById(int id)
-        {
-            return unitOfWork.TodoRepository.GetByID(id);
         }
     }
 }
